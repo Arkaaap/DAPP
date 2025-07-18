@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Storage DApp</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+</head>
+<body>
+  <h1>Simple Storage</h1>
+  <input type="number" id="input">
+  <button onclick="setValue()">Set</button>
+  <button onclick="getValue()">Get</button>
+  <p id="output"></p>
+
+  <script>
+    let contract;
+    const contractAddress = "DEPLOYED_CONTRACT_ADDRESS";
+    const abi = [ /* Copy ABI here from build/contracts/SimpleStorage.json */ ];
+
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        await ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await web3.eth.getAccounts();
+        contract = new web3.eth.Contract(abi, contractAddress, { from: accounts[0] });
+      } else {
+        alert("Install MetaMask!");
+      }
+    });
+
+    async function setValue() {
+      const val = document.getElementById("input").value;
+      await contract.methods.set(val).send();
+    }
+
+    async function getValue() {
+      const val = await contract.methods.get().call();
+      document.getElementById("output").innerText = val;
+    }
+  </script>
+</body>
+</html>
