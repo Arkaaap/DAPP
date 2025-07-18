@@ -26,5 +26,5 @@ This project is a sample Ethereum DApp deployed on a private blockchain using Ga
 
 ```bash
 git clone https://github.com/Arkaaap/DAPP.git
-cd DAPP
+#cd DAPP
 # DAPP
