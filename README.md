@@ -3,7 +3,7 @@
 This project is a sample Ethereum DApp deployed on a private blockchain using Ganache CLI, with a simple frontend connected via MetaMask.
 
 ---
-
+## company : CODETECH IT SOLUTIONS Name : Arkapriya Das Intern Id : CT08DG657 Domain : BLOCKCHAIN TECHNOLOGY Duration : 8 weeks Mentor : NEELA SANTOSH
 ## Features
 
 - Private Ethereum blockchain running on Ganache CLI
